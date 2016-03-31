@@ -74,57 +74,6 @@ module.exports = {
         res.json(200, {message: "User updated successfully ", user: updatedDummy} );
       }
     });
-  },
-
-// sails-hook-email
-
-  Mail: function(req, res){
-
-    var params = {
-      recipientName: "Raj",
-      senderName: "Mani"
-    }
-    Mailer.send("manimozhi.b@optisolbusiness.com",'testEmail', params);
-
-  },
-  // Mail: function(req, res){
-  //   sails.hooks.email.send(
-  //    "testEmail",
-  //     {
-  //       recipientName: "Mani",
-  //       senderName: "Bell"
-  //     },
-  //     {
-  //       to: "bmanimozhi12@gmail.com",
-  //       subject: "Hi there.. It is pricelayer mail testing :) :) :) "
-  //     },
-  //     function(err) {console.log(err || "It worked!");}
-  //   )
-  // },
-
-
-// emailjs 
-  sendMail: function(req, res){
-
-    var email   = require("emailjs");
-    var server  = email.server.connect({
-       user:    "postmaster@sandboxf421e01c800849eca3834fba09885b99.mailgun.org", 
-       password:"0e1d46694ed03c76ad6c7a93d2d0f484", 
-       host:    "smtp.mailgun.org", 
-       ssl: false
-    });
-
-    var message = {
-       text:    "i hope this works", 
-       from:    "pricelayer@test.com", 
-       to:      "bmanimozhi12@gmail.com",
-       subject: "testing emailjs"
-    };
-
-// send the message and get a callback with an error or details of the message that was sent
-    server.send(message, function(err, message) { console.log(err || message); });
-
   }
-
 };
 
