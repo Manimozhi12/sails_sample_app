@@ -6,6 +6,20 @@
  */
 
 module.exports = {
+  create: function (req, res) {
+    
+    Shilpa.create(req.body).exec(function (err, user) {
+      if (err) {
+        return res.json(err.status, {err: err});
+      }
+      // If user created successfuly we return user and token as response
+      if (user) {
+        // NOTE: payload is { id: user.id}
+
+        res.json(200, {message: "User created successfuly"});
+      }
+    });
+  }
 	
 };
 
